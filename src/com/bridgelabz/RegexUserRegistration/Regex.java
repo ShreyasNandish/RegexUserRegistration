@@ -11,8 +11,11 @@ public class Regex {
 
         System.out.println(" enter first name :");
         String fname = scanner.nextLine();
+        System.out.println(" enter last name :");
+        String lname = scanner.nextLine();
 
         regex.validFirstName(fname);
+        regex.validLastName(lname);
     }
 
     public void validFirstName(String fname)
@@ -24,5 +27,16 @@ public class Regex {
             System.out.println("Given first name is valid ");
         else
             System.out.println("Given first name is not valid ");
+    }
+
+    public void validLastName(String lname)
+    {
+        Pattern pattern = Pattern.compile("^[A-Z][a-zA-Z]{2,}");
+
+        Matcher matcher = pattern.matcher(lname);
+        if(matcher.matches())
+            System.out.println("Given last name is valid ");
+        else
+            System.out.println("Given last name is not valid ");
     }
 }
