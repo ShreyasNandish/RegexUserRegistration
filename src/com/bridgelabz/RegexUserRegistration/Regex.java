@@ -13,9 +13,12 @@ public class Regex {
         String fname = scanner.nextLine();
         System.out.println(" enter last name :");
         String lname = scanner.nextLine();
+        System.out.println(" enter email ID :");
+        String mailId = scanner.nextLine();
 
         regex.validFirstName(fname);
         regex.validLastName(lname);
+        regex.validMailId(mailId);
     }
 
     public void validFirstName(String fname)
@@ -38,5 +41,16 @@ public class Regex {
             System.out.println("Given last name is valid ");
         else
             System.out.println("Given last name is not valid ");
+    }
+
+    public void validMailId(String mailId)
+    {
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-z]+([.][a-z])*([.][a-z]+)$");
+
+        Matcher matcher = pattern.matcher(mailId);
+        if(matcher.matches())
+            System.out.println("Given email is valid ");
+        else
+            System.out.println("Given email is not valid ");
     }
 }
