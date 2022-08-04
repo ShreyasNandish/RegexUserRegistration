@@ -15,10 +15,13 @@ public class Regex {
         String lname = scanner.nextLine();
         System.out.println(" enter email ID :");
         String mailId = scanner.nextLine();
+        System.out.println(" enter phone number :");
+        String phoneNumber = scanner.nextLine();
 
         regex.validFirstName(fname);
         regex.validLastName(lname);
         regex.validMailId(mailId);
+        regex.validMobileNumber(phoneNumber);
     }
 
     public void validFirstName(String fname)
@@ -52,5 +55,18 @@ public class Regex {
             System.out.println("Given email is valid ");
         else
             System.out.println("Given email is not valid ");
+    }
+
+    public void validMobileNumber(String phonenumber) {
+
+        Pattern pattern = Pattern.compile("^(91[ ])?[6-9]\\d{9}$");
+
+        Matcher matcher = pattern.matcher(phonenumber);
+        if (matcher.matches()) {
+            System.out.println("Mobile No: " + phonenumber + " is valid.");
+        } else {
+            System.out.println("Mobile No: " + phonenumber+ " is invalid.");
+        }
+
     }
 }
