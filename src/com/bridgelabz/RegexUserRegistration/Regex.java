@@ -17,11 +17,14 @@ public class Regex {
         String mailId = scanner.nextLine();
         System.out.println(" enter phone number :");
         String phoneNumber = scanner.nextLine();
+        System.out.println(" enter password :");
+        String password = scanner.nextLine();
 
         regex.validFirstName(fname);
         regex.validLastName(lname);
         regex.validMailId(mailId);
         regex.validMobileNumber(phoneNumber);
+        regex.validPassword(password);
     }
 
     public void validFirstName(String fname)
@@ -67,6 +70,16 @@ public class Regex {
         } else {
             System.out.println("Mobile No: " + phonenumber+ " is invalid.");
         }
+    }
 
+    public void validPassword(String password)
+    {
+        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+
+        Matcher matcher = pattern.matcher(password);
+        if(matcher.matches())
+            System.out.println("Given email is valid ");
+        else
+            System.out.println("Given email is not valid ");
     }
 }
