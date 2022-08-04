@@ -74,12 +74,12 @@ public class Regex {
 
     public void validPassword(String password)
     {
-        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        Pattern pattern = Pattern.compile("(?=.*[A-Z])[a-zA-Z0-9@#$%^&*()]{8,}$");
 
         Matcher matcher = pattern.matcher(password);
         if(matcher.matches())
-            System.out.println("Given email is valid ");
+            System.out.println("Given password is valid ");
         else
-            System.out.println("Given email is not valid ");
+            System.out.println("Given password is not valid ");
     }
 }
